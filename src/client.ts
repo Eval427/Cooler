@@ -1,7 +1,7 @@
 const image = document.getElementById('image') as HTMLImageElement;
 
 setInterval(async () => {
-    const res = await fetch('http://localhost:3000/displayImage');
+    const res = await fetch('https://cooler-production.up.railway.app/displayImage');
     const data = await res.json();
     console.log(data);
     if (data.img && data.img !== image.src) {
