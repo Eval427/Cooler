@@ -17,13 +17,11 @@ let imgUrl: string;
 app.post('/inbound', async (req, res) => {
     imgUrl = req.body.img;
     const userSubmit = req.body.sender;
-    console.log(`New inbound image ${imgUrl} from ${userSubmit}`);
     res.json({"result": "Image Acquired"});
 });
 
 // Server -> Client
 app.get('/displayImage', async (req, res) => {
-    console.log("Requesting image");
     res.json({img: imgUrl});
 });
 

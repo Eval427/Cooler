@@ -12,7 +12,6 @@ const image = document.getElementById('image');
 setInterval(() => __awaiter(void 0, void 0, void 0, function* () {
     const res = yield fetch('https://cooler-production.up.railway.app/displayImage');
     const data = yield res.json();
-    console.log(data);
     if (data.img && data.img !== image.src) {
         image.src = data.img;
     }

@@ -26,12 +26,10 @@ let imgUrl;
 app.post('/inbound', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     imgUrl = req.body.img;
     const userSubmit = req.body.sender;
-    console.log(`New inbound image ${imgUrl} from ${userSubmit}`);
     res.json({ "result": "Image Acquired" });
 }));
 // Server -> Client
 app.get('/displayImage', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("Requesting image");
     res.json({ img: imgUrl });
 }));
 app.listen(PORT, () => {
