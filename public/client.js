@@ -10,8 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const image = document.getElementById('image');
 setInterval(() => __awaiter(void 0, void 0, void 0, function* () {
-    const res = yield fetch('./displayImage');
+    const res = yield fetch('http://localhost:3000/displayImage');
     const data = yield res.json();
+    console.log(data);
     if (data.img && data.img !== image.src) {
         image.src = data.img;
     }

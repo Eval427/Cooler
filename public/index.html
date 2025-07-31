@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<script src="/client.js"></script>
+	<script src="client.js" async defer></script>
 	<style>
 		body {
 			margin: 0;
@@ -19,7 +19,6 @@
 		#image {
 			width: 100vw;
 			height: 100vh;
-			transform: scale(1.8);
 			transform-origin: center;
 		}
 	</style>
@@ -27,22 +26,8 @@
 
 <body>
 	<div id="container">
-		<img id="image" width="640" height="640" src=""></img>
+		<img id="image" width="240" height="240" src=""></img>
 	</div>
 </body>
-
-<script type="text/javascript">
-	const youtubeEmbedRoot = 'https://www.youtube.com/embed/'
-	const params = (new URL(window.location.href)).searchParams
-	const viewstate = params.get('viewstate') || 640
-
-	const video = window.document.getElementById('video')
-	video.setAttribute('width', viewstate)
-	video.setAttribute('height', viewstate)
-
-	const videoId = params.get('video') || '1km9XQSc0Yw'
-	const youtubeUrl = `${youtubeEmbedRoot}${videoId}?autoplay=1&playlist=${videoId}&loop=1&controls=0&mute=1`
-	video.setAttribute('src', youtubeUrl)
-</script>
 
 </html>

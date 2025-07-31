@@ -1,10 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import path from 'path';
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+app.use(cors());
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 let imgUrl: string;
 
@@ -17,7 +22,8 @@ app.post('/inbound', async (req, res) => {
 });
 
 // Server -> Client
-app.post('/displayImage', async (req, res) => {
+app.get('/displayImage', async (req, res) => {
+    console.log("Requesting image");
     res.json({img: imgUrl});
 });
 

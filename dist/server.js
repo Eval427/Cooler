@@ -14,9 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 app.use(body_parser_1.default.json());
+app.use((0, cors_1.default)());
 let imgUrl;
 // Discord -> Server
 app.post('/inbound', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -26,7 +28,8 @@ app.post('/inbound', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     res.json({ "result": "Image Acquired" });
 }));
 // Server -> Client
-app.post('/displayImage', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/displayImage', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("Requesting image");
     res.json({ img: imgUrl });
 }));
 app.listen(PORT, () => {
