@@ -7,3 +7,5 @@ setInterval(async () => {
         image.src = data.img;
     }
 }, 5000);
+
+// This is a comment
